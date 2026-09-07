@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The 11th Point | Table Tennis Live Stream</title>
+    <!-- Google Fonts for Modern Typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800;900&display=swap" rel="stylesheet">
+    <!-- FontAwesome for YouTube Icon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* CSS Reset & Variables */
+        :root {
+            --bg-color: #0b0f19;
+            --card-bg: #161c2e;
+            --accent-orange: #ff5e36;
+            --accent-blue: #00d2ff;
+            --text-main: #ffffff;
+            --text-muted: #94a3b8;
+            --youtube-red: #ff0000;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+            overflow-x: hidden;
+            background: radial-gradient(circle at top, #1e293b 0%, var(--bg-color) 70%);
+        }
+
+        /* Header / Logo */
+        header {
+            width: 100%;
+            padding: 2rem 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.5rem;
+            font-weight: 900;
+            letter-spacing: -0.5px;
+            text-transform: uppercase;
+        }
+
+        .logo span {
+            color: var(--accent-orange);
+        }
+
+        .paddle-icon {
+            font-size: 1.8rem;
+            color: var(--accent-orange);
+            transform: rotate(-15deg);
+        }
+
+        /* Main Container */
+        main {
+            width: 100%;
+            max-width: 1000px;
+            padding: 0 1.5rem 2rem 1.5rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        /* Title Banner */
+        .title-area {
+            margin-bottom: 2rem;
+        }
+
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255, 94, 54, 0.15);
+            color: var(--accent-orange);
+            padding: 6px 16px;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+            border: 1px solid rgba(255, 94, 54, 0.3);
+        }
+
+        .badge .pulse-dot {
+            width: 8px;
+            height: 8px;
+            background-color: var(--accent-orange);
+            border-radius: 50%;
+            box-shadow: 0 0 8px var(--accent-orange);
+            animation: pulse 1.5s infinite;
+        }
+
+        @keyframes pulse {
+            0% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.4; transform: scale(1.2); }
+            100% { opacity: 1; transform: scale(1); }
+        }
+
+        h1 {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            font-weight: 900;
+            line-height: 1.1;
+            margin-bottom: 0.8rem;
+        }
+
+        p.subtitle {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Video Container */
+        .video-wrapper {
+            width: 100%;
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+            height: 0;
+            background-color: #000;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(255, 255, 255, 0.1);
+            margin-bottom: 2.5rem;
+        }
+
+        .video-wrapper iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        /* Call To Action Button */
+        .cta-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .btn-subscribe {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            background-color: var(--youtube-red);
+            color: #ffffff;
+            font-size: 1.25rem;
+            font-weight: 700;
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 25px rgba(255, 0, 0, 0.4);
+        }
+
+        .btn-subscribe:hover {
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 15px 35px rgba(255, 0, 0, 0.6);
+            background-color: #e60000;
+        }
+
+        .btn-subscribe i {
+            font-size: 1.5rem;
+        }
+
+        .sub-count {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        /* Footer */
+        footer {
+            padding: 2rem;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            text-align: center;
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 600px) {
+            header {
+                justify-content: center;
+            }
+            .btn-subscribe {
+                width: 100%;
+                justify-content: center;
+                font-size: 1.1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation Header -->
+    <header>
+        <div class="logo">
+            <i class="fa-solid fa-table-tennis-paddle-ball paddle-icon"></i>
+            The <span>11th Point</span>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Title & Status -->
+        <div class="title-area">
+            <div class="badge">
+                <div class="pulse-dot"></div>
+                Live Stream Match
+            </div>
+            <h1>Game, Set, Championship Point</h1>
+            <p class="subtitle">Watch elite table tennis matches, tactical breakdowns, and intense rallies live right now.</p>
+        </div>
+
+        <!-- Embedded Live Video Stream -->
+        <div class="video-wrapper">
+            <!-- Replace 'YOUR_LIVE_STREAM_ID' or channel live embed code below -->
+            <iframe 
+                src="https://www.youtube.com/@The11thPoint" 
+                title="The 11th Point Live Stream" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                allowfullscreen>
+            </iframe>
+        </div>
+
+        <!-- Prominent Subscribe Call to Action -->
+        <div class="cta-container">
+            <a href="https://www.youtube.com/@The11thPoint" target="_blank" class="btn-subscribe">
+                <i class="fa-brands fa-youtube"></i>
+                Subscribe on YouTube
+            </a>
+            <span class="sub-count">Join 50,000+ table tennis fans worldwide</span>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        &copy; 2026 The 11th Point Table Tennis Channel. All Rights Reserved.
+    </footer>
+
+</body>
+</html>
